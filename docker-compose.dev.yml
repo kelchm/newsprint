@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  newsprint:
+    image: kelchm/newsprint:latest
+    container_name: newsprint-app-dev
+    ports:
+      - "8081:80"
+    volumes:
+      - ./archive:/var/www/html/archive
+      - ./index.php:/var/www/html/index.php
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+    restart: unless-stopped

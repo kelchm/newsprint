@@ -11,3 +11,39 @@ The current newspapers that I've setup include the Boston Globe, New York Times,
 The second portion of the software needed to get this running is the Visionect server. Information on the [Visionect docker container and server](https://docs.visionect.com/VisionectSoftwareSuite/Installation.html) are available for install. This has to run on the same network as the eInk display.  The display itself is not standalone, it's a thin client and requires the Visionect software to act as an HTML rendering engine of sorts.  The Visionect server software can be run on any docker server and general installation instructions are on the Visionect site. I was able to get it to run on my Synology server with a slightly modified file. The details of this are in the docker folder of this repo. 
 
 [__Affiliate link to Visionect eInk Display that was used__](https://www.visionect.com/ref/graiz/)
+
+## Docker Quick Reference
+
+### Development (with live file mounting)
+```bash
+# Start development environment - files are mounted for instant changes
+docker-compose -f docker-compose.dev.yml up -d
+
+# View logs
+docker-compose -f docker-compose.dev.yml logs -f
+
+# Stop
+docker-compose -f docker-compose.dev.yml down
+```
+
+### Production Deployment
+```bash
+# Start production container
+docker-compose up -d
+
+# View logs
+docker-compose logs -f newsprint
+
+# Stop
+docker-compose down
+```
+
+### Building & Publishing
+```bash
+# Build multi-architecture image for production (ARM64 + AMD64)
+docker buildx build --platform linux/amd64,linux/arm64 -t kelchm/newsprint:latest --push .
+
+# Quick local test build
+docker build -t newsprint-test .
+docker run -d -p 8081:80 --name test newsprint-test
+```

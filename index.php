@@ -10,13 +10,14 @@ date_default_timezone_set('Etc/GMT+4');  // adjust for server timezone
 // https://cdn.freedomforum.org/dfp/pdf16/MA_BG.pdf
 
 $news = array();
-//$paper['prefix']="WSJ";$paper['style']="width:98%;margin:-70px 0px 0px -15px";array_push($news,$paper); // WSJ -broken 2021
-$paper['prefix']="DC_WP";$paper['style']="width:108%;margin:-5% -5% 0px -5%";array_push($news,$paper);  // Washington Post
-$paper['prefix']="MA_BG";$paper['style']="width:98%;margin:5px 10px 0px 8px";array_push($news,$paper);	  // Boston Globe
-$paper['prefix']="NY_NYT";$paper['style']="width:99%;margin:-28px 14px 0px 3px";array_push($news,$paper); // New York Times
-$paper['prefix']="CA_LAT";$paper['style']="width:94%;margin:-2% 0px 0px 0px";array_push($news,$paper);  // L.A. Times
-$paper['prefix']="CAN_TS";$paper['style']="width:90%;margin:-70px 0px 0px 0px";array_push($news,$paper);// Toronto Star
-$paper['prefix']="CA_SFC";$paper['style']="width:96%;margin:-20px 0px 0px 0px";array_push($news,$paper);  // SF Chronical
+$paper['prefix']="WSJ";$paper['style']="width:108%;margin:-300px 0 0 -4%";array_push($news,$paper); // WSJ -broken 2021
+$paper['prefix']="PA_PPG";$paper['style']="width:106%;margin:-190px 0 0 -3%";array_push($news,$paper);  // Pittsburgh Post-Gazette
+$paper['prefix']="DC_WP";$paper['style']="width:108%;margin:-102px 0 0 -4%";array_push($news,$paper);  // Washington Post
+$paper['prefix']="MA_BG";$paper['style']="width:100%;margin:10px 0 0 0";array_push($news,$paper);	  // Boston Globe
+$paper['prefix']="NY_NYT";$paper['style']="width:104%;margin:-95px 0 0 -2%";array_push($news,$paper); // New York Times
+$paper['prefix']="CA_LAT";$paper['style']="width:104%;margin:-34px 0 0 -2%";array_push($news,$paper);  // L.A. Times
+$paper['prefix']="CAN_TS";$paper['style']="width:106%;margin:-340px 0 0 -3%";array_push($news,$paper);// Toronto Star
+$paper['prefix']="CA_SFC";$paper['style']="width:106%;margin:-30px 0 0 -3%";array_push($news,$paper);  // SF Chronical
 $maxPapers = count($news) -1;
 
 // Loop a counter without a DB.
